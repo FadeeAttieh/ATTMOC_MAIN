@@ -18,24 +18,24 @@ export default function RevealOnScroll({
 }: RevealOnScrollProps) {
   const directions: Record<string, { hidden: any; visible: any }> = {
     up: {
-      hidden: { opacity: 0, y: 75 },
-      visible: { opacity: 1, y: 0 },
+      hidden: { opacity: 0, y: 30, scale: 0.95 },
+      visible: { opacity: 1, y: 0, scale: 1 },
     },
     down: {
-      hidden: { opacity: 0, y: -75 },
-      visible: { opacity: 1, y: 0 },
+      hidden: { opacity: 0, y: -30, scale: 0.95 },
+      visible: { opacity: 1, y: 0, scale: 1 },
     },
     left: {
-      hidden: { opacity: 0, x: 75 },
-      visible: { opacity: 1, x: 0 },
+      hidden: { opacity: 0, x: 30, scale: 0.95 },
+      visible: { opacity: 1, x: 0, scale: 1 },
     },
     right: {
-      hidden: { opacity: 0, x: -75 },
-      visible: { opacity: 1, x: 0 },
+      hidden: { opacity: 0, x: -30, scale: 0.95 },
+      visible: { opacity: 1, x: 0, scale: 1 },
     },
     fade: {
-      hidden: { opacity: 0 },
-      visible: { opacity: 1 },
+      hidden: { opacity: 0, scale: 0.95 },
+      visible: { opacity: 1, scale: 1 },
     },
   };
 
@@ -45,8 +45,12 @@ export default function RevealOnScroll({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration, delay }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ 
+        duration, 
+        delay,
+        ease: "easeOut"
+      }}
       variants={variants}
       className={className}
     >

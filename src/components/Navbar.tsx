@@ -115,7 +115,7 @@ export default function Navbar() {
             <motion.img 
               src="/AttMOC_logo.png" 
               alt="ATTMOC Logo" 
-              className="w-24 h-24 bg-transparent"
+              className="w-24 h-24 object-contain"
               whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             />
@@ -292,7 +292,7 @@ export default function Navbar() {
         {/* Logo in drawer */}
         <div className="px-8 mb-8">
           <div className="flex items-center gap-3">
-            <img src="/AttMOC_logo.png" alt="ATTMOC Logo" className="w-20 h-20 bg-transparent" />
+            <img src="/AttMOC_logo.png" alt="ATTMOC Logo" className="w-20 h-20 object-contain" />
             <div className="flex flex-col">
               <span className="font-bold text-xl text-blue-700 dark:text-blue-400">
                 ATTMOC

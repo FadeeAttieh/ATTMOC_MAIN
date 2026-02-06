@@ -15,11 +15,11 @@ export default class MyDocument extends Document {
           `}</style>
 
           {/* Favicon and manifest */}
-          <link rel="icon" type="image/png" href="/AttMOC_logo.png" />
+          <link rel="icon" type="image/png" href="/favicon.png?v=3" />
           <link rel="manifest" href="/site.webmanifest" />
           
           {/* Apple icon */}
-          <link rel="apple-touch-icon" href="/AttMOC_logo.png" />
+          <link rel="apple-touch-icon" href="/favicon.png?v=3" />
           
           {/* Theme color for address bar */}
           <meta name="theme-color" content="#ffffff" />

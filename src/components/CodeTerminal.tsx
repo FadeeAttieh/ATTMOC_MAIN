@@ -1,36 +1,73 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const codeLines = [
   '$ npm create next-app@latest',
   '✓ Creating a new Next.js project...',
   '$ cd attmoc-client-project',
-  '$ npm install react typescript tailwind',
-  '✓ Installing dependencies...',
-  '$ npm run dev',
-  '✨ Building your digital future...',
-  '✓ Ready on http://localhost:3000',
+  '$ npm install && npm run build',
+  '✓ Build completed in 2.4s',
+  '$ npm test',
+  '✓ All tests passed (24/24)',
+  '$ docker build -t attmoc/app .',
+  '✓ Container built successfully',
+  '$ kubectl apply -f deployment.yml',
+  '✓ Deployed to production',
+  '$ vercel deploy --prod',
+  '✓ Live at https://your-app.vercel.app',
   '',
-  '> ATTMOC - Code that transforms businesses',
+  '> Project 1 Complete - Full Stack Deployment',
+  '',
+  '$ npx create-next-app web-app',
+  '$ npx react-native init MobileApp',
+  '$ npm install @azure/functions',
+  '✓ Setting up cloud infrastructure...',
+  '$ npm run deploy',
+  '✓ Web app deployed ✓ Mobile app published',
+  '',
+  '> ATTMOC - Building for web, mobile & cloud',
+  '',
 ];
 
-export default function CodeTerminal() {
+interface CodeTerminalProps {
+  resetTrigger?: number;
+}
+
+export default function CodeTerminal({ resetTrigger = 0 }: CodeTerminalProps) {
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
+
+  // Reset terminal text when resetTrigger changes
+  useEffect(() => {
+    if (resetTrigger > 0) {
+      setDisplayedLines([]);
+      setCurrentLineIndex(0);
+      setCurrentText('');
+      setCharIndex(0);
+    }
+  }, [resetTrigger]);
+
+  // Auto-scroll to bottom when new lines are added
+  useEffect(() => {
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
+  }, [displayedLines, currentText]);
 
   useEffect(() => {
     if (currentLineIndex >= codeLines.length) {
-      // Reset after a pause
+      // Clear screen and loop - like a real terminal
       const resetTimer = setTimeout(() => {
         setDisplayedLines([]);
         setCurrentLineIndex(0);
         setCurrentText('');
         setCharIndex(0);
-      }, 3000);
+      }, 2000);
       return () => clearTimeout(resetTimer);
     }
 
@@ -57,7 +94,7 @@ export default function CodeTerminal() {
 
   return (
     <motion.div
-      className="bg-gray-900 dark:bg-black rounded-xl shadow-2xl overflow-hidden border border-gray-700"
+      className="bg-gray-900 dark:bg-black rounded-xl shadow-2xl overflow-hidden border border-gray-700 h-full"
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
@@ -74,7 +111,11 @@ export default function CodeTerminal() {
       </div>
 
       {/* Terminal Body */}
-      <div className="p-6 font-mono text-sm h-[300px] md:h-[350px] overflow-hidden">
+      <div 
+        ref={terminalBodyRef}
+        className="p-6 font-mono text-sm h-full overflow-y-auto pt-6"
+        style={{ scrollBehavior: 'smooth' }}
+      >
         <div className="space-y-2">
           {displayedLines.map((line, index) => (
             <div

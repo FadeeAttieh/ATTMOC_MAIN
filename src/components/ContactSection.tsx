@@ -250,8 +250,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Email Us</h3>
-                  <a href="mailto:contact@attmoc.com" className="text-blue-600 dark:text-blue-400 hover:underline">
-                    contact@attmoc.com
+                  <a href="mailto:info@attmoc.space" className="text-blue-600 dark:text-blue-400 hover:underline">
+                    info@attmoc.space
                   </a>
                 </div>
               </div>

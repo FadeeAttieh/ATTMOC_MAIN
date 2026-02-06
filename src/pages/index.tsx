@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -10,6 +10,7 @@ import StatsSection from "../components/StatsSection";
 import RevealOnScroll from "../components/RevealOnScroll";
 import FloatingShapes from "../components/FloatingShapes";
 import Showcase3D from "../components/Showcase3D";
+import CodeTerminal from "../components/CodeTerminal";
 import { trackEvent } from "../lib/analytics";
 
 // Dynamic imports for code splitting - components below the fold
@@ -35,12 +36,30 @@ const FAQSection = dynamic(() => import("../components/FAQSection"), {
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll();
+  const [resetTrigger, setResetTrigger] = useState(0);
   
-  // Parallax effects for hero section
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  // Reset terminal text only when scrolled back to top
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (latest) => {
+      if (latest === 0) {
+        setResetTrigger(prev => prev + 1);
+      }
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
+  
+  // Terminal animation: slide down and disappear on scroll down, slide up on scroll up
+  const terminalY = useTransform(scrollYProgress, [0, 0.6], ['0%', '100%']);
+  const terminalOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0.35, 0.2, 0]);
+  
+  // Content box animations
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const handleContactClick = () => {
     trackEvent('cta', 'click', 'get_quote');
@@ -95,11 +114,11 @@ export default function Home() {
         additionalLinkTags={[
           {
             rel: 'icon',
-            href: '/AttMOC_logo.png',
+            href: '/favicon.png?v=3',
           },
           {
             rel: 'apple-touch-icon',
-            href: '/AttMOC_logo.png',
+            href: '/favicon.png?v=3',
             sizes: '180x180',
           },
           {
@@ -115,28 +134,30 @@ export default function Home() {
         <motion.section
           id="hero"
           ref={heroRef}
-          className="min-h-screen w-full flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat sm:px-4 md:px-8 lg:px-16 relative overflow-hidden"
-          style={{ 
-            backgroundImage: "url('/hero-bg.jpg')",
-          }}
+          className="min-h-screen w-full flex flex-col justify-center items-center sm:px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-100 dark:via-blue-100 dark:to-purple-100"
         >
-          {/* Parallax background layer */}
+          {/* Animated Terminal - Slides down and vanishes */}
           <motion.div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 flex items-center justify-center pt-28"
             style={{ 
-              backgroundImage: "url('/hero-bg.jpg')",
-              y: heroY,
-              scale: heroScale,
+              y: terminalY,
+              opacity: terminalOpacity,
             }}
-          />
+          >
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full" style={{ filter: 'blur(1px)' }}>
+                <CodeTerminal resetTrigger={resetTrigger} />
+              </div>
+            </div>
+          </motion.div>
           
-          {/* Floating 3D Shapes Background */}
-          <FloatingShapes />
-          
-          {/* Content with fade effect */}
+          {/* Content with fade and parallax effect */}
           <motion.div 
             className="bg-white dark:bg-gray-800 bg-opacity-90 dark:bg-opacity-95 p-6 sm:p-8 rounded-2xl shadow-2xl flex flex-col items-center mx-auto text-center responsive-container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl relative z-10"
-            style={{ opacity: heroOpacity }}
+            style={{ 
+              opacity: contentOpacity,
+              y: contentY,
+            }}
           >
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
@@ -144,11 +165,12 @@ export default function Home() {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
             >
               <OptimizedImage
-                src="/hero-fg.jpg"
-                alt="ATTMOC Hero"
-                width={200}
-                height={200}
-                className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mb-4 sm:mb-6 shadow-lg"
+                src="/AttMOC_logo.png"
+                alt="ATTMOC Logo"
+                width={600}
+                height={600}
+                className="w-72 h-72 sm:w-96 sm:h-96 mb-4 sm:mb-6 object-contain bg-transparent"
+                style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2))' }}
                 priority
               />
             </motion.div>
