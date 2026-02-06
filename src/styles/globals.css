@@ -1,78 +1,211 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Custom global styles */
+/* ===== Custom global styles ===== */
+
+/* Root color variables for easy theming */
+:root {
+  color-scheme: light;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --focus-color: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+    --border-color: #2d2d2d;
+    --focus-color: #60a5fa;
+  }
+}
+
+.dark {
+  color-scheme: dark;
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --border-color: #2d2d2d;
+  --focus-color: #60a5fa;
+}
+
+/* Images optimization */
 img {
-  max-width: none !important;
+  max-width: 100%;
   height: auto;
+  display: block;
 }
+
+/* Body and base styles */
 body {
-  @apply bg-gray-50 text-gray-900 font-sans;
+  @apply bg-white text-gray-900 font-sans transition-colors duration-200;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-a {
-  @apply text-blue-600 hover:text-blue-800 transition-colors;
+/* Nav button reset - ensure transparency */
+nav button,
+nav a {
+  background: transparent !important;
+  border: none;
+  outline: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold text-gray-800;
+nav button:focus-visible,
+nav a:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
 }
 
-input, textarea, select, button {
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
-}
-
-.dark body {
+body.dark {
   @apply bg-gray-900 text-gray-100;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Links */
+a {
+  @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+a:focus-visible {
+  @apply outline-2 outline-blue-500 dark:outline-blue-400 rounded px-1;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-gray-800 dark:text-gray-100;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+/* Form elements with better accessibility */
+input, textarea, select {
+  @apply border border-gray-300 dark:border-gray-600 rounded;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-blue-500 dark:ring-blue-400 border-transparent;
+}
+
+/* Focus visible for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @apply outline-2 outline-blue-500 dark:outline-blue-400 outline-offset-2 rounded;
+}
+
+/* Button styles with dark mode support */
+button {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 rounded transition-all;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
-  background: #f3f4f6;
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 4px;
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
 }
 
-img {
-  @apply max-w-none;
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
 }
 
-/* Add custom transitions for animated UI */
+/* Smooth transitions and animations */
 .fade-enter {
   opacity: 0;
   transition: opacity 0.3s;
 }
+
 .fade-enter-active {
   opacity: 1;
 }
+
 .fade-exit {
   opacity: 1;
   transition: opacity 0.3s;
 }
+
 .fade-exit-active {
   opacity: 0;
 }
 
+/* Animated gradient backgrounds */
 .animated-gradient {
   background: linear-gradient(270deg, #2563eb, #9333ea, #f59e42, #10b981);
   background-size: 800% 800%;
   animation: gradientMove 12s ease-in-out infinite;
 }
+
 @keyframes gradientMove {
-  0% {background-position:0% 50%}
-  50% {background-position:100% 50%}
-  100% {background-position:0% 50%}
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.08);}
-  100% { transform: scale(1);}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
+
 .pulse {
   animation: pulse 2s infinite;
 }
@@ -87,7 +220,7 @@ img {
   padding-right: 1rem;
 }
 
-/* Button styles */
+/* Button component styles */
 .btn {
   padding: 0.5rem 1.5rem;
   background: #2563eb;
@@ -96,20 +229,86 @@ img {
   font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.1s;
   font-size: 1rem;
+  min-height: 48px; /* Touch-friendly size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .btn:hover {
   background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.dark {
+  background: #1e40af;
+}
+
+.btn.dark:hover {
+  background: #1e3a8a;
 }
 
 /* Responsive text sizes for headings */
 .heading-main {
   font-size: 2.5rem;
 }
+
 @media (min-width: 768px) {
   .heading-main {
     font-size: 3rem;
   }
 }
 
+/* Skip to content link (accessibility) */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2563eb;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Selection colors for better contrast */
+::selection {
+  @apply bg-blue-500 dark:bg-blue-400 text-white dark:text-gray-900;
+}
+
+/* Print styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  a {
+    @apply underline;
+  }
+
+  .no-print {
+    display: none;
+  }
+}

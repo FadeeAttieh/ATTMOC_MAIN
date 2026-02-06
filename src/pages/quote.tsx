@@ -1,5 +1,14 @@
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import type { GetServerSideProps } from "next";
+import { featureFlags } from "../config/featureFlags";
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  if (!featureFlags.quote) {
+    return { notFound: true };
+  }
+  return { props: {} };
+};
 
 type Step = 1 | 2 | 3 | 4 | 5;
 

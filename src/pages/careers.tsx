@@ -1,5 +1,14 @@
 import React from "react";
+import type { GetServerSideProps } from "next";
 import Navbar from "../components/Navbar";
+import { featureFlags } from "../config/featureFlags";
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  if (!featureFlags.careers) {
+    return { notFound: true };
+  }
+  return { props: {} };
+};
 
 export default function Careers() {
   return (
