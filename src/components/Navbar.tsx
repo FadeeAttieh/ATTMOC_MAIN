@@ -99,8 +99,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? "bg-transparent backdrop-blur-lg" 
-            : "bg-transparent backdrop-blur-md"
+            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg" 
+            : "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md"
         }`}
         role="navigation"
         aria-label="Main navigation"
