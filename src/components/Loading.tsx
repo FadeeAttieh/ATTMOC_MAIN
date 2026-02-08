@@ -57,10 +57,9 @@ export default function Loading() {
             strokeWidth="8"
             fill="none"
             strokeDasharray={2 * Math.PI * 85}
-            strokeDashoffset={2 * Math.PI * 85 * (1 - progress / 100)}
+            strokeDashoffset={2 * Math.PI * 85 - (2 * Math.PI * 85 * progress / 100)}
             strokeLinecap="round"
             style={{ 
-              transition: "stroke-dashoffset 0.2s ease-out",
               transform: "rotate(-90deg)",
               transformOrigin: "center"
             }}
