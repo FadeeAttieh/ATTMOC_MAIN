@@ -138,7 +138,7 @@ export default function Navbar() {
               className={`relative px-4 py-2 font-medium transition-all duration-200 bg-transparent border-0 ${
                 active === section.id
                   ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
+                  : "text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
               }`}
               style={{ background: 'transparent' }}
               whileHover={{ scale: 1.05 }}
@@ -152,7 +152,7 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/careers" 
-                className="relative px-4 py-2 font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
+                className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
                 style={{ background: 'transparent' }}
               >
                 Careers
@@ -163,7 +163,7 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/quote" 
-                className="relative px-4 py-2 font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
+                className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
                 style={{ background: 'transparent' }}
               >
                 Quote
@@ -174,7 +174,7 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/blog" 
-                className="relative px-4 py-2 font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
+                className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
                 style={{ background: 'transparent' }}
               >
                 Blog
@@ -186,7 +186,7 @@ export default function Navbar() {
           {mounted && (
             <motion.button
               onClick={toggleTheme}
-              className="ml-4 p-2.5 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-gray-200 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 shadow-md hover:shadow-lg transition-all duration-300"
+              className="ml-4 p-2.5 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-white hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 shadow-md hover:shadow-lg transition-all duration-300"
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
               aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
@@ -215,7 +215,7 @@ export default function Navbar() {
           {mounted && (
             <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-gray-200 shadow-md"
+              className="p-2 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-white shadow-md"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
@@ -277,7 +277,7 @@ export default function Navbar() {
         {/* Close button */}
         <div className="flex justify-end p-4">
           <motion.button
-            className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
             onClick={() => setMenuOpen(false)}
             whileHover={{ scale: 1.1, rotate: 90 }}
             whileTap={{ scale: 0.9 }}
@@ -313,7 +313,7 @@ export default function Navbar() {
               className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
                 active === section.id
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
               }`}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -333,7 +333,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/careers" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Careers
@@ -349,7 +349,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/quote" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Quote
@@ -365,7 +365,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/blog" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Blog
