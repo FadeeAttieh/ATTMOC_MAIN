@@ -12,9 +12,9 @@ export default function GlassCard({ children, className = '', hover = true }: Gl
     <motion.div
       className={`
         relative overflow-hidden rounded-2xl p-6
-        bg-white/10 dark:bg-gray-800/10
+        bg-white/80 dark:bg-gray-800/80
         backdrop-blur-xl
-        border border-white/20 dark:border-gray-700/20
+        border border-white/30 dark:border-gray-700/30
         shadow-xl shadow-black/5
         ${className}
       `}

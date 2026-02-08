@@ -68,7 +68,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
     <div className="w-full h-full flex flex-col md:flex-row gap-0">
       {/* Code Side */}
       <motion.div 
-        className="flex-1 bg-white rounded-l-xl p-6 overflow-hidden border border-gray-300 flex flex-col"
+        className="flex-1 bg-white dark:bg-gray-900 rounded-l-xl p-6 overflow-hidden border border-gray-300 dark:border-gray-700 flex flex-col"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
@@ -78,13 +78,13 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
           <div className="w-3 h-3 rounded-full bg-red-500" />
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
           <div className="w-3 h-3 rounded-full bg-green-500" />
-          <span className="text-gray-500 text-sm ml-4 font-mono">App.tsx</span>
+          <span className="text-gray-500 dark:text-gray-400 text-sm ml-4 font-mono">App.tsx</span>
         </div>
         <div className="flex-1 overflow-auto">
-          <pre className="font-mono text-sm text-blue-700 whitespace-pre-wrap">
+          <pre className="font-mono text-sm text-blue-700 dark:text-blue-400 whitespace-pre-wrap">
             {displayedCode}
             <motion.span
-              className="inline-block w-2 h-4 bg-blue-700 ml-1"
+              className="inline-block w-2 h-4 bg-blue-700 dark:bg-blue-400 ml-1"
               animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 0.8, repeat: Infinity }}
             />
@@ -94,15 +94,15 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
 
       {/* Visual Output Side - Same size as code */}
       <motion.div 
-        className="flex-1 bg-gradient-to-br from-white to-gray-50 rounded-r-xl border-t border-r border-b border-gray-300 overflow-hidden flex flex-col @container"
+        className="flex-1 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-r-xl border-t border-r border-b border-gray-300 dark:border-gray-700 overflow-hidden flex flex-col @container"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         style={{ y: visualY }}
       >
         {/* Preview Label */}
-        <div className="bg-gray-100 px-4 py-2 border-b border-gray-300">
-          <span className="text-gray-600 text-sm font-mono">Preview</span>
+        <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-300 dark:border-gray-700">
+          <span className="text-gray-600 dark:text-gray-400 text-sm font-mono">Preview</span>
         </div>
         
         {/* Visual Output */}

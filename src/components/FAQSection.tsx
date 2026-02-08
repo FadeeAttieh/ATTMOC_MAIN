@@ -27,18 +27,18 @@ export default function FAQSection() {
       viewport={{ once: true }}
       className="container mx-auto"
     >
-      <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((faq, idx) => (
-          <div key={idx} className="border rounded">
+          <div key={idx} className="border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow">
             <button
-              className="w-full text-left px-4 py-3 font-semibold"
+              className="w-full text-left px-4 py-3 font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setOpen(open === idx ? null : idx)}
             >
               {faq.q}
             </button>
             {open === idx && (
-              <div className="px-4 pb-3 text-gray-700">{faq.a}</div>
+              <div className="px-4 pb-3 text-gray-700 dark:text-gray-300">{faq.a}</div>
             )}
           </div>
         ))}

@@ -58,7 +58,7 @@ export default function PortfolioSection() {
             key={project.title}
             variants={itemVariants}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-2xl transition-shadow"
+            className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-2xl transition-shadow border border-gray-200 dark:border-gray-700"
             whileHover={{ scale: 1.03, rotate: 1 }}
             whileTap={{ scale: 0.98 }}
           >

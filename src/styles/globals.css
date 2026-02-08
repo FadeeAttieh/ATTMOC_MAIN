@@ -265,9 +265,10 @@ button:disabled {
   background: #1e3a8a;
 }
 
-/* Responsive text sizes for headings */
+/* Responsive text sizes forheadings */
 .heading-main {
   font-size: 2.5rem;
+  @apply text-gray-900 dark:text-white;
 }
 
 @media (min-width: 768px) {

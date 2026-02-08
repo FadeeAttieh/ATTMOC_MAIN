@@ -15,23 +15,23 @@ import { trackEvent } from "../lib/analytics";
 
 // Dynamic imports for code splitting - components below the fold
 const ServicesSection = dynamic(() => import("../components/ServicesSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500 dark:text-gray-400">Loading...</div></div>,
 });
 
 const PortfolioSection = dynamic(() => import("../components/PortfolioSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500 dark:text-gray-400">Loading...</div></div>,
 });
 
 const AboutSection = dynamic(() => import("../components/AboutSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500 dark:text-gray-400">Loading...</div></div>,
 });
 
 const ContactSection = dynamic(() => import("../components/ContactSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500 dark:text-gray-400">Loading...</div></div>,
 });
 
 const FAQSection = dynamic(() => import("../components/FAQSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500 dark:text-gray-400">Loading...</div></div>,
 });
 
 export default function Home() {
@@ -157,7 +157,7 @@ export default function Home() {
             }}
           >
             <motion.h1 
-              className="font-bold mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-900"
+              className="font-bold mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-900 dark:text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -166,7 +166,7 @@ export default function Home() {
             </motion.h1>
             
             <motion.p 
-              className="text-gray-700 mb-8 text-lg sm:text-xl md:text-2xl max-w-2xl"
+              className="text-gray-700 dark:text-gray-300 mb-8 text-lg sm:text-xl md:text-2xl max-w-2xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
