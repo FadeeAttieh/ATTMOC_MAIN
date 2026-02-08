@@ -99,8 +99,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg" 
-            : "bg-white/60 dark:bg-gray-900/60 backdrop-blur-md"
+            ? "bg-white/10 dark:bg-gray-900/30 backdrop-blur-lg" 
+            : "bg-white/5 dark:bg-gray-900/20 backdrop-blur-md"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -120,10 +120,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             />
             <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-xl text-blue-700 dark:text-blue-400 leading-tight">
+              <span className="font-bold text-xl text-blue-700 dark:text-blue-400 leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
                 ATTMOC
               </span>
-              <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase">
+              <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
                 Digital Excellence Since 2020
               </span>
             </div>
@@ -140,7 +140,10 @@ export default function Navbar() {
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
               }`}
-              style={{ background: 'transparent' }}
+              style={{ 
+                background: 'transparent',
+                textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px'
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-current={active === section.id ? "page" : undefined}
@@ -153,7 +156,7 @@ export default function Navbar() {
               <Link 
                 href="/careers" 
                 className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
-                style={{ background: 'transparent' }}
+                style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
               >
                 Careers
               </Link>
@@ -164,7 +167,7 @@ export default function Navbar() {
               <Link 
                 href="/quote" 
                 className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
-                style={{ background: 'transparent' }}
+                style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
               >
                 Quote
               </Link>
@@ -175,7 +178,7 @@ export default function Navbar() {
               <Link 
                 href="/blog" 
                 className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
-                style={{ background: 'transparent' }}
+                style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
               >
                 Blog
               </Link>
