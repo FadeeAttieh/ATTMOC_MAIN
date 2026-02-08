@@ -55,7 +55,7 @@ export default function Home() {
   
   // Terminal animation: slide down and disappear on scroll down, slide up on scroll up
   const terminalY = useTransform(scrollYProgress, [0, 0.6], ['0%', '100%']);
-  const terminalOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0.35, 0.2, 0]);
+  const terminalOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0.65, 0.4, 0]);
   
   // Content box animations
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
@@ -134,7 +134,7 @@ export default function Home() {
         <motion.section
           id="hero"
           ref={heroRef}
-          className="min-h-screen w-full flex flex-col justify-center items-center sm:px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-100 dark:via-blue-100 dark:to-purple-100"
+          className="min-h-screen w-full flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50"
         >
           {/* Animated Terminal - Slides down and vanishes */}
           <motion.div
@@ -151,55 +151,39 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* Content with fade and parallax effect */}
+          {/* Content - Clean with transparent backgrounds */}
           <motion.div 
-            className="bg-white dark:bg-gray-800 bg-opacity-90 dark:bg-opacity-95 p-6 sm:p-8 rounded-2xl shadow-2xl flex flex-col items-center mx-auto text-center responsive-container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl relative z-10"
+            className="flex flex-col items-center mx-auto text-center max-w-4xl relative z-10"
             style={{ 
               opacity: contentOpacity,
               y: contentY,
             }}
           >
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
-            >
-              <OptimizedImage
-                src="/AttMOC_logo.png"
-                alt="ATTMOC Logo"
-                width={600}
-                height={600}
-                className="w-72 h-72 sm:w-96 sm:h-96 mb-4 sm:mb-6 object-contain bg-transparent"
-                style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2))' }}
-                priority
-              />
-            </motion.div>
-            
             <motion.h1 
-              className="heading-main font-bold mb-2 sm:mb-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-900 dark:text-white"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-bold mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-900"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
               We Build Websites, Apps & Brands
             </motion.h1>
             
             <motion.p 
-              className="text-gray-600 dark:text-gray-300 mb-6 text-base sm:text-lg max-w-md"
-              initial={{ opacity: 0, y: 20 }}
+              className="text-gray-700 mb-8 text-lg sm:text-xl md:text-2xl max-w-2xl"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
-              ATTMOC (Attieh Ministry of Code) creates modern digital solutions that help businesses grow and connect with their audience.
+              ATTMOC creates modern digital solutions that help businesses grow and connect with their audience.
             </motion.p>
             
             <motion.button
               onClick={handleContactClick}
-              className="btn bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105"
               aria-label="Get a quote for your project"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
