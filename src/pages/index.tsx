@@ -10,7 +10,7 @@ import StatsSection from "../components/StatsSection";
 import RevealOnScroll from "../components/RevealOnScroll";
 import FloatingShapes from "../components/FloatingShapes";
 import Showcase3D from "../components/Showcase3D";
-import CodeTerminal from "../components/CodeTerminal";
+import CodeToVisual from "../components/CodeToVisual";
 import { trackEvent } from "../lib/analytics";
 
 // Dynamic imports for code splitting - components below the fold
@@ -43,7 +43,7 @@ export default function Home() {
     offset: ["start start", "end start"]
   });
   
-  // Reset terminal text only when scrolled back to top
+  // Reset code animation when scrolled back to top
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
       if (latest === 0) {
@@ -53,9 +53,9 @@ export default function Home() {
     return () => unsubscribe();
   }, [scrollYProgress]);
   
-  // Terminal animation: slide down and disappear on scroll down, slide up on scroll up
-  const terminalY = useTransform(scrollYProgress, [0, 0.6], ['0%', '100%']);
-  const terminalOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0.65, 0.4, 0]);
+  // Code-to-Visual animation: slide down and disappear
+  const codeVisualY = useTransform(scrollYProgress, [0, 0.6], ['0%', '100%']);
+  const codeVisualOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0.8, 0.5, 0]);
   
   // Content box animations
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
@@ -136,18 +136,15 @@ export default function Home() {
           ref={heroRef}
           className="min-h-screen w-full flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50"
         >
-          {/* Animated Terminal - Slides down and vanishes */}
+          {/* Animated Code-to-Visual - Slides down and vanishes */}
           <motion.div
             className="absolute inset-0 flex items-center justify-center pt-28"
             style={{ 
-              y: terminalY,
-              opacity: terminalOpacity,
+              opacity: codeVisualOpacity,
             }}
           >
             <div className="w-full h-full flex items-center justify-center">
-              <div className="w-full h-full" style={{ filter: 'blur(1px)' }}>
-                <CodeTerminal resetTrigger={resetTrigger} />
-              </div>
+              <CodeToVisual key={resetTrigger} scrollYProgress={scrollYProgress} />
             </div>
           </motion.div>
           

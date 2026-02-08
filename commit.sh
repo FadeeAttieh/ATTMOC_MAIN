@@ -16,8 +16,11 @@ git add .
 # Commit with the provided message
 git commit -m "$1"
 
+# Push to GitHub
+git push
+
 # Show status
 git status
 
 echo ""
-echo "Commit completed: $1"
+echo "Commit completed and pushed: $1"
