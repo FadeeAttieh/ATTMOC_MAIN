@@ -1,1 +1,32 @@
-{}
+{
+  "pages/index.tsx -> ../components/AboutSection": {
+    "id": "pages/index.tsx -> ../components/AboutSection",
+    "files": [
+      "static/chunks/_pages-dir-browser_src_components_AboutSection_tsx.js"
+    ]
+  },
+  "pages/index.tsx -> ../components/ContactSection": {
+    "id": "pages/index.tsx -> ../components/ContactSection",
+    "files": [
+      "static/chunks/_pages-dir-browser_src_components_ContactSection_tsx.js"
+    ]
+  },
+  "pages/index.tsx -> ../components/FAQSection": {
+    "id": "pages/index.tsx -> ../components/FAQSection",
+    "files": [
+      "static/chunks/_pages-dir-browser_src_components_FAQSection_tsx.js"
+    ]
+  },
+  "pages/index.tsx -> ../components/PortfolioSection": {
+    "id": "pages/index.tsx -> ../components/PortfolioSection",
+    "files": [
+      "static/chunks/_pages-dir-browser_src_components_PortfolioSection_tsx.js"
+    ]
+  },
+  "pages/index.tsx -> ../components/ServicesSection": {
+    "id": "pages/index.tsx -> ../components/ServicesSection",
+    "files": [
+      "static/chunks/_pages-dir-browser_src_components_ServicesSection_tsx.js"
+    ]
+  }
+}

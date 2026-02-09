@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useTransform, MotionValue } from 'framer-motio
 
 const codeSteps = [
   {
-    code: '// Navbar Component\n<nav className="flex items-center\n  gap-6 px-4">\n  <a className="flex items-center gap-3">\n    <img src="/AttMOC_logo.png"\n      className="w-24 h-24 object-contain" />\n    <div className="flex flex-col">\n      <span className="font-bold text-xl\n        text-blue-700">ATTMOC</span>\n      <span className="text-[10px]\n        text-gray-600 uppercase">\n        Digital Excellence Since 2020\n      </span>\n    </div>\n  </a>\n  <div className="flex gap-6">\n    <Link href="#hero">Home</Link>\n    <Link href="#services">Services</Link>\n    <Link href="#portfolio">Portfolio</Link>\n    <Link href="#about">About</Link>\n    <Link href="#contact">Contact</Link>\n    <Link href="#faq">FAQ</Link>\n  </div>\n</nav>',
+    code: '// Navbar Component\n<nav className="flex items-center\n  gap-6 px-4">\n  <a className="flex items-center gap-3">\n    <img src="/AttMOC_logo.png"\n      className="w-24 h-24 object-contain" />\n    <div className="flex flex-col">\n      <span className="font-bold text-xl\n        text-emerald-600">ATTMOC</span>\n      <span className="text-[10px]\n        text-gray-600 uppercase">\n        Digital Excellence Since 2020\n      </span>\n    </div>\n  </a>\n  <div className="flex gap-6">\n    <Link href="#hero">Home</Link>\n    <Link href="#services">Services</Link>\n    <Link href="#portfolio">Portfolio</Link>\n    <Link href="#about">About</Link>\n    <Link href="#contact">Contact</Link>\n    <Link href="#faq">FAQ</Link>\n  </div>\n</nav>',
     visual: 'nav-basic',
   },
   {
@@ -17,7 +17,7 @@ const codeSteps = [
     visual: 'subtext-added',
   },
   {
-    code: '// Call-to-Action Button\n<button className="mt-8 px-8 py-4\n  bg-blue-600 text-white\n  rounded-lg font-semibold\n  hover:bg-blue-700\n  transition-all">\n  Get Started Today\n</button>',
+    code: '// Call-to-Action Button\n<button className="mt-8 px-8 py-4\n  bg-emerald-500 text-white\n  rounded-lg font-semibold\n  hover:bg-emerald-600\n  transition-all">\n  Get Started Today\n</button>',
     visual: 'cta-added',
   },
 ];
@@ -81,10 +81,10 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
           <span className="text-gray-500 dark:text-gray-400 text-sm ml-4 font-mono">App.tsx</span>
         </div>
         <div className="flex-1 overflow-auto">
-          <pre className="font-mono text-sm text-blue-700 dark:text-blue-400 whitespace-pre-wrap">
+          <pre className="font-mono text-sm text-gray-900 whitespace-pre-wrap">
             {displayedCode}
             <motion.span
-              className="inline-block w-2 h-4 bg-blue-700 dark:bg-blue-400 ml-1"
+              className="inline-block w-2 h-4 bg-gray-900 ml-1"
               animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 0.8, repeat: Infinity }}
             />
@@ -120,17 +120,17 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                   <a className="group flex items-center gap-2 hover:opacity-90 transition-all duration-300 cursor-pointer" onClick={(e) => e.preventDefault()}>
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-sm text-blue-700 leading-tight">ATTMOC</span>
+                      <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
                       <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Home</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Services</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Portfolio</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">About</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Contact</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">FAQ</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Home</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Services</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Portfolio</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">About</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Contact</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">FAQ</span>
                   </div>
                   <button className="ml-auto @lg:hidden p-2" onClick={(e) => e.preventDefault()}>
                     <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,17 +153,17 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                   <a className="group flex items-center gap-2 hover:opacity-90 transition-all duration-300 cursor-pointer" onClick={(e) => e.preventDefault()}>
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-sm text-blue-700 leading-tight">ATTMOC</span>
+                      <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
                       <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Home</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Services</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Portfolio</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">About</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Contact</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">FAQ</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Home</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Services</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Portfolio</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">About</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Contact</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">FAQ</span>
                   </div>
                   <button className="ml-auto @lg:hidden p-2" onClick={(e) => e.preventDefault()}>
                     <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                   </button>
                 </nav>
                 <motion.div 
-                  className="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-8"
+                  className="flex-1 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg p-8"
                   initial={{ scale: 0.9 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2 }}
@@ -196,17 +196,17 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                   <a className="group flex items-center gap-2 hover:opacity-90 transition-all duration-300 cursor-pointer" onClick={(e) => e.preventDefault()}>
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-sm text-blue-700 leading-tight">ATTMOC</span>
+                      <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
                       <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Home</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Services</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Portfolio</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">About</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Contact</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">FAQ</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Home</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Services</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Portfolio</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">About</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Contact</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">FAQ</span>
                   </div>
                   <button className="ml-auto @lg:hidden p-2" onClick={(e) => e.preventDefault()}>
                     <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -214,7 +214,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                     </svg>
                   </button>
                 </nav>
-                <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-8">
+                <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg p-8">
                   <div className="text-center max-w-2xl">
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                       Build Your Digital Future
@@ -244,17 +244,17 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                   <a className="group flex items-center gap-2 hover:opacity-90 transition-all duration-300 cursor-pointer" onClick={(e) => e.preventDefault()}>
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-sm text-blue-700 leading-tight">ATTMOC</span>
+                      <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
                       <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Home</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Services</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Portfolio</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">About</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">Contact</span>
-                    <span className="text-gray-700 hover:text-blue-600 cursor-pointer">FAQ</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Home</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Services</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Portfolio</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">About</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">Contact</span>
+                    <span className="text-gray-700 hover:text-emerald-500 cursor-pointer">FAQ</span>
                   </div>
                   <button className="ml-auto @lg:hidden p-2" onClick={(e) => e.preventDefault()}>
                     <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,7 +262,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                     </svg>
                   </button>
                 </nav>
-                <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-8">
+                <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg p-8">
                   <div className="text-center max-w-2xl">
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                       Build Your Digital Future
@@ -271,7 +271,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                       We create modern websites, apps and brands that transform your business vision into reality.
                     </p>
                     <motion.button
-                      className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+                      className="px-8 py-4 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors shadow-lg"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}

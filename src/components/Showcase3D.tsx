@@ -14,10 +14,10 @@ export default function Showcase3D() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
           We Code Your Digital Future
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-white max-w-2xl mx-auto drop-shadow">
           Modern technologies, expert development, real results
         </p>
       </motion.div>
@@ -53,7 +53,7 @@ export default function Showcase3D() {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="mt-12 text-center"
       >
-        <p className="text-gray-700 mb-6 text-lg">
+        <p className="text-white mb-6 text-lg drop-shadow">
           Ready to transform your business with modern technology?
         </p>
         <motion.button
@@ -63,7 +63,7 @@ export default function Showcase3D() {
               contactSection.scrollIntoView({ behavior: 'smooth' });
             }
           }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all"
+          className="bg-black hover:bg-gray-900 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all"
           whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
           whileTap={{ scale: 0.98 }}
         >

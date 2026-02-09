@@ -20,16 +20,16 @@ export default function Loading() {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-white via-blue-50 to-purple-50 z-50">
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-black via-emerald-950 to-emerald-900 z-50">
       {/* Logo Container with Progress Ring */}
       <div className="relative flex items-center justify-center mb-8">
         {/* Progress Ring */}
         <svg width="200" height="200" viewBox="0 0 200 200" className="absolute">
           <defs>
             <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2563eb" />
-              <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#8b5cf6" />
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="50%" stopColor="#059669" />
+              <stop offset="100%" stopColor="#047857" />
             </linearGradient>
             <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -44,7 +44,7 @@ export default function Loading() {
             cx="100"
             cy="100"
             r="85"
-            stroke="#e5e7eb"
+            stroke="#064e3b"
             strokeWidth="8"
             fill="none"
           />
@@ -89,7 +89,7 @@ export default function Loading() {
           />
           {/* Percentage Display */}
           <motion.div 
-            className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-sm rounded-full shadow-lg"
+            className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold text-sm rounded-full shadow-lg shadow-emerald-900/50"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -106,10 +106,10 @@ export default function Loading() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-purple-700">
+        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600 drop-shadow-lg">
           ATTMOC
         </h2>
-        <p className="text-sm text-gray-600 font-medium tracking-wide">
+        <p className="text-sm text-emerald-300 font-medium tracking-wide drop-shadow">
           Digital Excellence Since 2020
         </p>
       </motion.div>
@@ -124,7 +124,7 @@ export default function Loading() {
         {[0, 1, 2].map((i) => (
           <motion.div
             key={i}
-            className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+            className="w-2 h-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"
             animate={{
               scale: [1, 1.5, 1],
               opacity: [0.5, 1, 0.5]

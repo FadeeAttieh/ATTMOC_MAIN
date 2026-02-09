@@ -122,13 +122,13 @@ export default function CodeTerminal({ resetTrigger = 0 }: CodeTerminalProps) {
               key={index}
               className={`${
                 line.startsWith('$')
-                  ? 'text-green-400'
+                  ? 'text-emerald-400'
                   : line.startsWith('✓')
-                  ? 'text-blue-400'
+                  ? 'text-emerald-300'
                   : line.startsWith('✨')
-                  ? 'text-purple-400'
+                  ? 'text-emerald-200'
                   : line.startsWith('>')
-                  ? 'text-cyan-400 font-semibold'
+                  ? 'text-emerald-400 font-semibold'
                   : 'text-gray-400'
               }`}
             >
@@ -139,13 +139,13 @@ export default function CodeTerminal({ resetTrigger = 0 }: CodeTerminalProps) {
             <div
               className={`${
                 currentText.startsWith('$')
-                  ? 'text-green-400'
+                  ? 'text-emerald-400'
                   : currentText.startsWith('✓')
-                  ? 'text-blue-400'
+                  ? 'text-emerald-300'
                   : currentText.startsWith('✨')
-                  ? 'text-purple-400'
+                  ? 'text-emerald-200'
                   : currentText.startsWith('>')
-                  ? 'text-cyan-400 font-semibold'
+                  ? 'text-emerald-400 font-semibold'
                   : 'text-gray-400'
               }`}
             >

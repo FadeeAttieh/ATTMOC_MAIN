@@ -5,7 +5,7 @@ export default function AboutSection() {
   return (
     <div className="container mx-auto">
       <motion.h2
-        className="text-2xl sm:text-3xl font-bold mb-8 text-center text-gray-900"
+        className="text-2xl sm:text-3xl font-bold mb-8 text-center text-white drop-shadow-lg"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -26,7 +26,7 @@ export default function AboutSection() {
         />
         
         <GlassCard className="flex-1" hover={false}>
-          <p className="text-gray-800 mb-4 leading-relaxed">
+          <p className="text-white mb-4 leading-relaxed">
             ATTMOC (Attieh Ministry of Code) is a team of passionate designers, developers, and strategists. 
             We help businesses grow with modern digital solutions that combine cutting-edge technology with 
             exceptional user experiences.
@@ -34,27 +34,27 @@ export default function AboutSection() {
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <motion.div
-              className="text-center p-4 rounded-xl bg-white/20"
+              className="text-center p-4 rounded-xl bg-emerald-900/30 border border-emerald-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-bold text-blue-600">2020</div>
-              <div className="text-sm text-gray-700">Founded</div>
+              <div className="text-2xl font-bold text-white">2020</div>
+              <div className="text-sm text-white">Founded</div>
             </motion.div>
             
             <motion.div
-              className="text-center p-4 rounded-xl bg-white/20"
+              className="text-center p-4 rounded-xl bg-emerald-900/30 border border-emerald-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-bold text-purple-600">20+</div>
-              <div className="text-sm text-gray-700">Team Members</div>
+              <div className="text-2xl font-bold text-white">20+</div>
+              <div className="text-sm text-white">Team Members</div>
             </motion.div>
             
             <motion.div
-              className="text-center p-4 rounded-xl bg-white/20"
+              className="text-center p-4 rounded-xl bg-emerald-900/30 border border-emerald-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-bold text-pink-600">150+</div>
-              <div className="text-sm text-gray-700">Projects</div>
+              <div className="text-2xl font-bold text-white">150+</div>
+              <div className="text-sm text-white">Projects</div>
             </motion.div>
           </div>
         </GlassCard>

@@ -79,15 +79,15 @@ export default function Navbar() {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 origin-left z-[60]"
         style={{ scaleX }}
       />
       
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? "bg-white/10 backdrop-blur-lg" 
-            : "bg-white/5 backdrop-blur-md"
+            ? "bg-gradient-to-r from-black/90 to-emerald-950/90 backdrop-blur-lg border-b border-emerald-800/50" 
+            : "bg-gradient-to-r from-black/80 to-emerald-950/80 backdrop-blur-md"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -107,10 +107,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             />
             <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-xl text-blue-700 leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
+              <span className="font-bold text-xl text-white leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px' }}>
                 ATTMOC
               </span>
-              <span className="text-[10px] text-gray-600 font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
+              <span className="text-[10px] text-white font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 1px 2px' }}>
                 Digital Excellence Since 2020
               </span>
             </div>
@@ -122,28 +122,25 @@ export default function Navbar() {
             <motion.button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`relative px-4 py-2 font-medium transition-all duration-200 bg-transparent border-0 ${
-                active === section.id
-                  ? "text-blue-600"
-                  : "text-gray-900 hover:text-blue-600"
-              }`}
+              className={`relative px-4 py-2 font-medium transition-all duration-200 bg-transparent border-0`}
               style={{ 
                 background: 'transparent',
-                textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px'
+                color: 'white !important',
+                textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px'
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-current={active === section.id ? "page" : undefined}
             >
-              <span className="relative z-10">{section.label}</span>
+              <span className="relative z-10" style={{ color: 'white !important' }}>{section.label}</span>
             </motion.button>
           ))}
           {featureFlags.careers && (
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/careers" 
-                className="relative px-4 py-2 font-medium text-gray-900 hover:text-blue-600 transition-all duration-200 inline-block"
-                style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
+                className="relative px-4 py-2 font-medium transition-all duration-200 inline-block"
+                style={{ background: 'transparent', color: 'white !important', textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px' }}
               >
                 Careers
               </Link>
@@ -153,8 +150,8 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/quote" 
-                className="relative px-4 py-2 font-medium text-gray-900 hover:text-blue-600 transition-all duration-200 inline-block"
-                style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
+                className="relative px-4 py-2 font-medium transition-all duration-200 inline-block"
+                style={{ background: 'transparent', color: 'white !important', textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px' }}
               >
                 Quote
               </Link>
@@ -164,8 +161,8 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/blog" 
-                className="relative px-4 py-2 font-medium text-gray-900 hover:text-blue-600 transition-all duration-200 inline-block"
-                style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
+                className="relative px-4 py-2 font-medium transition-all duration-200 inline-block"
+                style={{ background: 'transparent', color: 'white !important', textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px' }}
               >
                 Blog
               </Link>
@@ -176,7 +173,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center gap-2">
           <motion.button
-            className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="p-2 rounded-lg bg-gradient-to-br from-emerald-600 to-emerald-800 text-white shadow-lg hover:shadow-xl transition-shadow duration-300"
             onClick={() => setMenuOpen((v) => !v)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -208,7 +205,7 @@ export default function Navbar() {
         initial={{ x: "100%" }}
         animate={{ x: menuOpen ? 0 : "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white/95 backdrop-blur-xl shadow-2xl z-50 md:hidden overflow-y-auto"
+        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-gradient-to-br from-black to-emerald-950 backdrop-blur-xl shadow-2xl z-50 md:hidden overflow-y-auto border-l border-emerald-800"
         style={{
           borderLeft: "1px solid rgba(200,200,255,0.2)",
         }}
@@ -216,7 +213,7 @@ export default function Navbar() {
         {/* Close button */}
         <div className="flex justify-end p-4">
           <motion.button
-            className="p-2 rounded-lg bg-gray-200 text-gray-800"
+            className="p-2 rounded-lg bg-emerald-800/50 text-white border border-emerald-700"
             onClick={() => setMenuOpen(false)}
             whileHover={{ scale: 1.1, rotate: 90 }}
             whileTap={{ scale: 0.9 }}
@@ -233,10 +230,10 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <img src="/AttMOC_logo.png" alt="ATTMOC Logo" className="w-20 h-20 object-contain" />
             <div className="flex flex-col">
-              <span className="font-bold text-xl text-blue-700">
+              <span className="font-bold text-xl text-white">
                 ATTMOC
               </span>
-              <span className="text-[10px] text-gray-600 font-medium tracking-wider uppercase">
+              <span className="text-[10px] text-white font-medium tracking-wider uppercase">
                 Digital Excellence
               </span>
             </div>
@@ -251,8 +248,8 @@ export default function Navbar() {
               onClick={() => scrollToSection(section.id)}
               className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
                 active === section.id
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                  : "text-gray-900 hover:bg-gray-100"
+                  ? "bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-lg shadow-emerald-900/50"
+                  : "text-white hover:bg-emerald-900/50 border border-emerald-800"
               }`}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -272,7 +269,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/careers" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-white hover:bg-emerald-900/50 transition-all duration-200 border border-emerald-800"
                 onClick={() => setMenuOpen(false)}
               >
                 Careers
@@ -288,7 +285,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/quote" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-white hover:bg-emerald-900/50 transition-all duration-200 border border-emerald-800"
                 onClick={() => setMenuOpen(false)}
               >
                 Quote
@@ -304,7 +301,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/blog" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-white hover:bg-emerald-900/50 transition-all duration-200 border border-emerald-800"
                 onClick={() => setMenuOpen(false)}
               >
                 Blog

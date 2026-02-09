@@ -24,7 +24,7 @@ export default function Careers() {
               Send your CV and portfolio to{" "}
               <a
                 href="mailto:jobs@webmob.com"
-                className="text-blue-600"
+                className="text-emerald-300 hover:text-emerald-200"
               >
                 jobs@webmob.com
               </a>
@@ -56,7 +56,7 @@ export default function Careers() {
               />
               <button
                 type="submit"
-                className="btn bg-blue-600 text-white w-full"
+                className="btn bg-gradient-to-r from-emerald-500 to-emerald-600 text-white w-full hover:from-emerald-600 hover:to-emerald-700 transition-all"
               >
                 Apply
               </button>

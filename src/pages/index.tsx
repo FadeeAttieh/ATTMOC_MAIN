@@ -15,23 +15,23 @@ import { trackEvent } from "../lib/analytics";
 
 // Dynamic imports for code splitting - components below the fold
 const ServicesSection = dynamic(() => import("../components/ServicesSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-emerald-300">Loading...</div></div>,
 });
 
 const PortfolioSection = dynamic(() => import("../components/PortfolioSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-emerald-300">Loading...</div></div>,
 });
 
 const AboutSection = dynamic(() => import("../components/AboutSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-emerald-300">Loading...</div></div>,
 });
 
 const ContactSection = dynamic(() => import("../components/ContactSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-emerald-300">Loading...</div></div>,
 });
 
 const FAQSection = dynamic(() => import("../components/FAQSection"), {
-  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-gray-500">Loading...</div></div>,
+  loading: () => <div className="h-96 flex items-center justify-center"><div className="animate-pulse text-emerald-300">Loading...</div></div>,
 });
 
 export default function Home() {
@@ -134,7 +134,7 @@ export default function Home() {
         <motion.section
           id="hero"
           ref={heroRef}
-          className="min-h-screen w-full flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50"
+          className="min-h-screen w-full flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-950"
         >
           {/* Animated Code-to-Visual - Slides down and vanishes */}
           <motion.div
@@ -157,7 +157,8 @@ export default function Home() {
             }}
           >
             <motion.h1 
-              className="font-bold mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-900"
+              className="font-bold mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg"
+              style={{ color: '#000000 !important' }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -166,7 +167,8 @@ export default function Home() {
             </motion.h1>
             
             <motion.p 
-              className="text-gray-700 mb-8 text-lg sm:text-xl md:text-2xl max-w-2xl"
+              className="mb-8 text-lg sm:text-xl md:text-2xl max-w-2xl drop-shadow"
+              style={{ color: '#000000 !important' }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -176,7 +178,8 @@ export default function Home() {
             
             <motion.button
               onClick={handleContactClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105"
+              className="font-semibold px-10 py-4 text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105"
+              style={{ backgroundColor: '#000000 !important', color: '#ffffff !important' }}
               aria-label="Get a quote for your project"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -190,13 +193,13 @@ export default function Home() {
         </motion.section>
 
         {/* Stats Section with Counter Animations */}
-        <section className="py-12 sm:py-20 bg-gradient-to-b from-white to-gray-50 flex justify-center w-full">
+        <section className="py-12 sm:py-20 bg-gradient-to-b from-black to-emerald-900 flex justify-center w-full">
           <div className="responsive-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <StatsSection />
           </div>
         </section>
 
-        <section id="services" className="py-12 sm:py-20 bg-white flex justify-center w-full">
+        <section id="services" className="py-12 sm:py-20 bg-gradient-to-br from-black via-emerald-950 to-emerald-900 flex justify-center w-full">
           <div className="responsive-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealOnScroll direction="up">
               <ServicesSection />
@@ -204,7 +207,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="portfolio" className="py-12 sm:py-20 bg-gray-50 flex justify-center w-full">
+        <section id="portfolio" className="py-12 sm:py-20 bg-gradient-to-br from-emerald-950 to-black flex justify-center w-full">
           <div className="responsive-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealOnScroll direction="up" delay={0.2}>
               <PortfolioSection />
@@ -213,7 +216,7 @@ export default function Home() {
         </section>
 
         {/* 3D Showcase Section */}
-        <section id="showcase" className="py-12 sm:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex justify-center w-full">
+        <section id="showcase" className="py-12 sm:py-20 bg-gradient-to-br from-black via-emerald-900 to-emerald-800 flex justify-center w-full">
           <div className="responsive-container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealOnScroll direction="fade">
               <Showcase3D />
@@ -221,7 +224,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="py-12 sm:py-20 bg-white flex justify-center w-full">
+        <section id="about" className="py-12 sm:py-20 bg-gradient-to-br from-black to-emerald-950 flex justify-center w-full">
           <div className="responsive-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealOnScroll direction="left">
               <AboutSection />
@@ -229,7 +232,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="py-12 sm:py-20 bg-gray-50 flex justify-center w-full">
+        <section id="contact" className="py-12 sm:py-20 bg-gradient-to-br from-emerald-950 via-emerald-900 to-black flex justify-center w-full">
           <div className="responsive-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealOnScroll direction="up">
               <ContactSection />
@@ -237,7 +240,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="faq" className="py-12 sm:py-20 bg-white flex justify-center w-full">
+        <section id="faq" className="py-12 sm:py-20 bg-gradient-to-br from-black to-emerald-900 flex justify-center w-full">
           <div className="responsive-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealOnScroll direction="fade">
               <FAQSection />

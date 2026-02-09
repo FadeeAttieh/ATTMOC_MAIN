@@ -3,20 +3,20 @@
 import { motion } from 'framer-motion';
 
 const technologies = [
-  { name: 'React', icon: '⚛️', color: 'from-cyan-500 to-blue-500', delay: 0 },
+  { name: 'React', icon: '⚛️', color: 'from-emerald-400 to-emerald-500', delay: 0 },
   { name: 'Next.js', icon: '▲', color: 'from-gray-800 to-gray-900', delay: 0.1 },
-  { name: 'TypeScript', icon: 'TS', color: 'from-blue-600 to-blue-700', delay: 0.2 },
-  { name: 'Tailwind', icon: '🎨', color: 'from-teal-400 to-cyan-500', delay: 0.3 },
-  { name: 'Node.js', icon: '🟢', color: 'from-green-600 to-green-700', delay: 0.4 },
-  { name: 'AI/ML', icon: '🤖', color: 'from-purple-500 to-pink-500', delay: 0.5 },
-  { name: 'Azure', icon: '☁️', color: 'from-blue-500 to-indigo-600', delay: 0.6 },
+  { name: 'TypeScript', icon: 'TS', color: 'from-emerald-600 to-emerald-700', delay: 0.2 },
+  { name: 'Tailwind', icon: '🎨', color: 'from-teal-400 to-emerald-500', delay: 0.3 },
+  { name: 'Node.js', icon: '🟢', color: 'from-emerald-600 to-emerald-700', delay: 0.4 },
+  { name: 'AI/ML', icon: '🤖', color: 'from-emerald-500 to-emerald-600', delay: 0.5 },
+  { name: 'Azure', icon: '☁️', color: 'from-emerald-500 to-emerald-600', delay: 0.6 },
   { name: 'Mobile', icon: '📱', color: 'from-orange-500 to-red-500', delay: 0.7 },
 ];
 
 export default function TechStack() {
   return (
     <div className="space-y-4">
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+      <h3 className="text-xl font-bold text-white mb-6">
         Technologies We Master
       </h3>
 
@@ -58,13 +58,13 @@ export default function TechStack() {
 
       {/* Bottom CTA */}
       <motion.div
-        className="mt-6 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 border border-blue-200 dark:border-gray-700"
+        className="mt-6 p-4 rounded-xl bg-black border border-emerald-800/30"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8 }}
       >
-        <p className="text-sm text-gray-700 dark:text-gray-300 text-center">
+        <p className="text-sm text-white text-center">
           💡 <strong>Modern Stack</strong> = Fast Development + Better Performance + Lower Costs
         </p>
       </motion.div>

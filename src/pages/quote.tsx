@@ -222,7 +222,7 @@ export default function Quote() {
                   <button type="button" className="btn mr-2" onClick={prevStep}>
                     Back
                   </button>
-                  <button type="submit" className="btn bg-blue-600 text-white">
+                  <button type="submit" className="btn bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 transition-all">
                     Submit Request
                   </button>
                 </section>

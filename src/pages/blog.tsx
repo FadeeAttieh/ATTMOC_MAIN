@@ -98,17 +98,17 @@ export default function Blog() {
       />
 
       <Navbar />
-      <main className="min-h-screen bg-gray-50 pt-20">
+      <main className="min-h-screen bg-gradient-to-br from-emerald-950 to-black pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+        <section className="bg-gradient-to-r from-emerald-600 to-emerald-800 text-white py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">ATTMOC Blog</h1>
-              <p className="text-xl text-blue-100 max-w-2xl">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">ATTMOC Blog</h1>
+              <p className="text-xl text-emerald-100 max-w-2xl drop-shadow">
                 Insights, tutorials, and best practices from our team of developers and designers.
               </p>
             </motion.div>
@@ -124,8 +124,8 @@ export default function Blog() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-900/50'
+                    : 'bg-emerald-900/50 text-emerald-100 hover:bg-emerald-800/70 border border-emerald-700'
                 }`}
               >
                 {category}
@@ -143,12 +143,12 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
+                className="bg-gradient-to-br from-emerald-900 to-black rounded-xl shadow-lg shadow-emerald-900/50 overflow-hidden hover:shadow-2xl hover:shadow-emerald-700/50 transition-all duration-300 cursor-pointer border border-emerald-800"
               >
                 <Link href={`/blog/${post.slug}`}>
                   <div>
                     {/* Image Placeholder */}
-                    <div className="relative h-48 bg-gradient-to-br from-blue-400 to-purple-500">
+                    <div className="relative h-48 bg-gradient-to-br from-emerald-600 to-emerald-800">
                       <div className="absolute inset-0 flex items-center justify-center text-white text-6xl opacity-20">
                         📝
                       </div>
@@ -157,22 +157,22 @@ export default function Blog() {
                     {/* Content */}
                     <div className="p-6">
                       {/* Category Badge */}
-                      <span className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full mb-3">
+                      <span className="inline-block px-3 py-1 text-xs font-semibold bg-emerald-500/30 text-emerald-200 rounded-full mb-3 border border-emerald-500">
                         {post.category}
                       </span>
 
                       {/* Title */}
-                      <h2 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+                      <h2 className="text-xl font-bold text-white mb-2 hover:text-emerald-400 transition-colors">
                         {post.title}
                       </h2>
 
                       {/* Excerpt */}
-                      <p className="text-gray-600 mb-4 line-clamp-3">
+                      <p className="text-emerald-100 mb-4 line-clamp-3">
                         {post.excerpt}
                       </p>
 
                       {/* Meta Info */}
-                      <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center justify-between text-sm text-emerald-300">
                         <div className="flex items-center gap-2">
                           <time dateTime={post.date}>
                             {new Date(post.date).toLocaleDateString('en-US', {
@@ -190,7 +190,7 @@ export default function Blog() {
                         {post.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded"
+                            className="text-xs px-2 py-1 bg-emerald-900/50 text-emerald-200 rounded border border-emerald-700"
                           >
                             #{tag}
                           </span>
@@ -206,7 +206,7 @@ export default function Blog() {
           {/* No posts message */}
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-lg">
+              <p className="text-emerald-200 text-lg">
                 No posts found in this category. Check back soon!
               </p>
             </div>
@@ -214,22 +214,22 @@ export default function Blog() {
         </section>
 
         {/* Newsletter CTA */}
-        <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
+        <section className="bg-gradient-to-r from-emerald-700 to-emerald-900 text-white py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-xl text-purple-100 mb-8">
+            <h2 className="text-3xl font-bold mb-4 drop-shadow-lg">Stay Updated</h2>
+            <p className="text-xl text-emerald-100 mb-8 drop-shadow">
               Get the latest articles and insights delivered to your inbox.
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 bg-white border-0"
+                className="flex-1 px-4 py-3 rounded-lg text-gray-900 bg-white border-0 shadow-lg"
                 required
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                className="px-6 py-3 bg-white text-emerald-700 font-semibold rounded-lg hover:bg-emerald-50 transition-colors shadow-lg"
               >
                 Subscribe
               </button>
