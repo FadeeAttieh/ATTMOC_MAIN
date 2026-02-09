@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { trackEvent } from "../lib/analytics";
 import { featureFlags } from "../config/featureFlags";
@@ -39,8 +38,6 @@ export default function Navbar() {
   const [active, setActive] = useState("hero");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   
   // Scroll progress
   const { scrollYProgress } = useScroll();
@@ -49,10 +46,6 @@ export default function Navbar() {
     damping: 30,
     restDelta: 0.001,
   });
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,12 +75,6 @@ export default function Navbar() {
     }
   };
 
-  const toggleTheme = () => {
-    const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    trackEvent('theme', 'toggle', newTheme);
-  };
-
   return (
     <>
       {/* Scroll Progress Bar */}
@@ -99,8 +86,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? "bg-white/10 dark:bg-gray-900/30 backdrop-blur-lg" 
-            : "bg-white/5 dark:bg-gray-900/20 backdrop-blur-md"
+            ? "bg-white/10 backdrop-blur-lg" 
+            : "bg-white/5 backdrop-blur-md"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -120,10 +107,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             />
             <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-xl text-blue-700 dark:text-blue-400 leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
+              <span className="font-bold text-xl text-blue-700 leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
                 ATTMOC
               </span>
-              <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
+              <span className="text-[10px] text-gray-600 font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}>
                 Digital Excellence Since 2020
               </span>
             </div>
@@ -137,8 +124,8 @@ export default function Navbar() {
               onClick={() => scrollToSection(section.id)}
               className={`relative px-4 py-2 font-medium transition-all duration-200 bg-transparent border-0 ${
                 active === section.id
-                  ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+                  ? "text-blue-600"
+                  : "text-gray-900 hover:text-blue-600"
               }`}
               style={{ 
                 background: 'transparent',
@@ -155,7 +142,7 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/careers" 
-                className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
+                className="relative px-4 py-2 font-medium text-gray-900 hover:text-blue-600 transition-all duration-200 inline-block"
                 style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
               >
                 Careers
@@ -166,7 +153,7 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/quote" 
-                className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
+                className="relative px-4 py-2 font-medium text-gray-900 hover:text-blue-600 transition-all duration-200 inline-block"
                 style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
               >
                 Quote
@@ -177,70 +164,19 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/blog" 
-                className="relative px-4 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 inline-block"
+                className="relative px-4 py-2 font-medium text-gray-900 hover:text-blue-600 transition-all duration-200 inline-block"
                 style={{ background: 'transparent', textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px' }}
               >
                 Blog
               </Link>
             </motion.div>
           )}
-
-          {/* Dark mode toggle */}
-          {mounted && (
-            <motion.button
-              onClick={toggleTheme}
-              className="ml-4 p-2.5 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-white hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 shadow-md hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
-              title={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
-            >
-              {resolvedTheme === 'dark' ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.323 3.677a1 1 0 00-1.414-1.414L12.586 5.41a1 1 0 101.414 1.414l.707-.707zm2.828 2.828a1 1 0 00-1.414-1.414l-.707.707a1 1 0 101.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zm-1.657 4.323a1 1 0 00-1.414-1.414l-.707.707a1 1 0 101.414 1.414l.707-.707zm-2.828 2.828a1 1 0 00-1.414-1.414l.707.707a1 1 0 101.414-1.414l-.707.707zM10 18a1 1 0 01-1-1v-1a1 1 0 112 0v1a1 1 0 01-1 1zm-4.323-3.677a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zm-2.828-2.828a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zm1.657-4.323a1 1 0 000 1.414l.707-.707a1 1 0 10-1.414-1.414l.707.707z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                </svg>
-              )}
-            </motion.button>
-          )}
         </div>
 
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center gap-2">
-          {/* Dark mode toggle for mobile */}
-          {mounted && (
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-800 dark:text-white shadow-md"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
-            >
-              {resolvedTheme === 'dark' ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.323 3.677a1 1 0 00-1.414-1.414L12.586 5.41a1 1 0 101.414 1.414l.707-.707zm2.828 2.828a1 1 0 00-1.414-1.414l-.707.707a1 1 0 101.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zm-1.657 4.323a1 1 0 00-1.414-1.414l-.707.707a1 1 0 101.414 1.414l.707-.707zm-2.828 2.828a1 1 0 00-1.414-1.414l.707.707a1 1 0 101.414-1.414l-.707.707zM10 18a1 1 0 01-1-1v-1a1 1 0 112 0v1a1 1 0 01-1 1zm-4.323-3.677a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zm-2.828-2.828a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zm1.657-4.323a1 1 0 000 1.414l.707-.707a1 1 0 10-1.414-1.414l.707.707z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                </svg>
-              )}
-            </motion.button>
-          )}
-
           <motion.button
-            className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl transition-shadow duration-300"
             onClick={() => setMenuOpen((v) => !v)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -272,7 +208,7 @@ export default function Navbar() {
         initial={{ x: "100%" }}
         animate={{ x: menuOpen ? 0 : "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl z-50 md:hidden overflow-y-auto"
+        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white/95 backdrop-blur-xl shadow-2xl z-50 md:hidden overflow-y-auto"
         style={{
           borderLeft: "1px solid rgba(200,200,255,0.2)",
         }}
@@ -280,7 +216,7 @@ export default function Navbar() {
         {/* Close button */}
         <div className="flex justify-end p-4">
           <motion.button
-            className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
+            className="p-2 rounded-lg bg-gray-200 text-gray-800"
             onClick={() => setMenuOpen(false)}
             whileHover={{ scale: 1.1, rotate: 90 }}
             whileTap={{ scale: 0.9 }}
@@ -297,10 +233,10 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <img src="/AttMOC_logo.png" alt="ATTMOC Logo" className="w-20 h-20 object-contain" />
             <div className="flex flex-col">
-              <span className="font-bold text-xl text-blue-700 dark:text-blue-400">
+              <span className="font-bold text-xl text-blue-700">
                 ATTMOC
               </span>
-              <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase">
+              <span className="text-[10px] text-gray-600 font-medium tracking-wider uppercase">
                 Digital Excellence
               </span>
             </div>
@@ -316,7 +252,7 @@ export default function Navbar() {
               className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
                 active === section.id
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                  : "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-gray-900 hover:bg-gray-100"
               }`}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -336,7 +272,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/careers" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 hover:bg-gray-100 transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Careers
@@ -352,7 +288,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/quote" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 hover:bg-gray-100 transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Quote
@@ -368,7 +304,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/blog" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-gray-900 hover:bg-gray-100 transition-all duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 Blog

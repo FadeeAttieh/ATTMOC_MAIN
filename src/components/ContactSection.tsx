@@ -75,7 +75,7 @@ export default function ContactSection() {
         className="container mx-auto"
       >
         <h2 className="text-3xl font-bold mb-6 text-center">Get In Touch</h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
           Have a project in mind? Let's discuss how ATTMOC can help bring your vision to life.
         </p>
 
@@ -87,19 +87,19 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg"
+            className="bg-white p-6 md:p-8 rounded-lg shadow-lg"
           >
             {/* Name Field */}
             <div className="mb-4">
-              <label htmlFor="name" className="block mb-2 font-semibold text-gray-800 dark:text-gray-200">
+              <label htmlFor="name" className="block mb-2 font-semibold text-gray-800">
                 Name <span className="text-red-500">*</span>
               </label>
               <input
                 id="name"
                 type="text"
                 {...register("name")}
-                className={`w-full p-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 ${
-                  errors.name ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300 dark:border-gray-600'
+                className={`w-full p-3 border rounded-lg bg-white text-gray-900 ${
+                  errors.name ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
                 placeholder="Your Name"
                 aria-invalid={errors.name ? "true" : "false"}
@@ -114,15 +114,15 @@ export default function ContactSection() {
 
             {/* Email Field */}
             <div className="mb-4">
-              <label htmlFor="email" className="block mb-2 font-semibold text-gray-800 dark:text-gray-200">
+              <label htmlFor="email" className="block mb-2 font-semibold text-gray-800">
                 Email <span className="text-red-500">*</span>
               </label>
               <input
                 id="email"
                 type="email"
                 {...register("email")}
-                className={`w-full p-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 ${
-                  errors.email ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300 dark:border-gray-600'
+                className={`w-full p-3 border rounded-lg bg-white text-gray-900 ${
+                  errors.email ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
                 placeholder="your.email@example.com"
                 aria-invalid={errors.email ? "true" : "false"}
@@ -137,29 +137,29 @@ export default function ContactSection() {
 
             {/* Phone Field (Optional) */}
             <div className="mb-4">
-              <label htmlFor="phone" className="block mb-2 font-semibold text-gray-800 dark:text-gray-200">
+              <label htmlFor="phone" className="block mb-2 font-semibold text-gray-800">
                 Phone <span className="text-gray-400 text-sm">(Optional)</span>
               </label>
               <input
                 id="phone"
                 type="tel"
                 {...register("phone")}
-                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                className="w-full p-3 border border-gray-300 rounded-lg bg-white text-gray-900"
                 placeholder="+1 (555) 123-4567"
               />
             </div>
 
             {/* Subject Field */}
             <div className="mb-4">
-              <label htmlFor="subject" className="block mb-2 font-semibold text-gray-800 dark:text-gray-200">
+              <label htmlFor="subject" className="block mb-2 font-semibold text-gray-800">
                 Subject <span className="text-red-500">*</span>
               </label>
               <input
                 id="subject"
                 type="text"
                 {...register("subject")}
-                className={`w-full p-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 ${
-                  errors.subject ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300 dark:border-gray-600'
+                className={`w-full p-3 border rounded-lg bg-white text-gray-900 ${
+                  errors.subject ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
                 placeholder="Project Inquiry"
                 aria-invalid={errors.subject ? "true" : "false"}
@@ -174,15 +174,15 @@ export default function ContactSection() {
 
             {/* Message Field */}
             <div className="mb-6">
-              <label htmlFor="message" className="block mb-2 font-semibold text-gray-800 dark:text-gray-200">
+              <label htmlFor="message" className="block mb-2 font-semibold text-gray-800">
                 Message <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
                 {...register("message")}
                 rows={5}
-                className={`w-full p-3 border rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 ${
-                  errors.message ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300 dark:border-gray-600'
+                className={`w-full p-3 border rounded-lg bg-white text-gray-900 ${
+                  errors.message ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
                 placeholder="Tell us about your project..."
                 aria-invalid={errors.message ? "true" : "false"}
@@ -199,7 +199,7 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white w-full font-semibold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn bg-blue-600 hover:bg-blue-700 text-white w-full font-semibold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Send message"
             >
               {isSubmitting ? (

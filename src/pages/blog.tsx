@@ -98,7 +98,7 @@ export default function Blog() {
       />
 
       <Navbar />
-      <main className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
+      <main className="min-h-screen bg-gray-50 pt-20">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,7 +125,7 @@ export default function Blog() {
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   selectedCategory === category
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
                 }`}
               >
                 {category}
@@ -143,7 +143,7 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
               >
                 <Link href={`/blog/${post.slug}`}>
                   <div>
@@ -157,22 +157,22 @@ export default function Blog() {
                     {/* Content */}
                     <div className="p-6">
                       {/* Category Badge */}
-                      <span className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full mb-3">
+                      <span className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full mb-3">
                         {post.category}
                       </span>
 
                       {/* Title */}
-                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      <h2 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
                         {post.title}
                       </h2>
 
                       {/* Excerpt */}
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                      <p className="text-gray-600 mb-4 line-clamp-3">
                         {post.excerpt}
                       </p>
 
                       {/* Meta Info */}
-                      <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center justify-between text-sm text-gray-500">
                         <div className="flex items-center gap-2">
                           <time dateTime={post.date}>
                             {new Date(post.date).toLocaleDateString('en-US', {
@@ -190,7 +190,7 @@ export default function Blog() {
                         {post.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded"
+                            className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded"
                           >
                             #{tag}
                           </span>
@@ -206,7 +206,7 @@ export default function Blog() {
           {/* No posts message */}
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-gray-500 dark:text-gray-400 text-lg">
+              <p className="text-gray-500 text-lg">
                 No posts found in this category. Check back soon!
               </p>
             </div>

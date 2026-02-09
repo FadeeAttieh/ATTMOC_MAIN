@@ -14,10 +14,10 @@ export default function Showcase3D() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
           We Code Your Digital Future
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Modern technologies, expert development, real results
         </p>
       </motion.div>
@@ -53,7 +53,7 @@ export default function Showcase3D() {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="mt-12 text-center"
       >
-        <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
+        <p className="text-gray-700 mb-6 text-lg">
           Ready to transform your business with modern technology?
         </p>
         <motion.button

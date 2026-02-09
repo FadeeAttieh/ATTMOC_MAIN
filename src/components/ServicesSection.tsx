@@ -50,7 +50,7 @@ export default function ServicesSection() {
   return (
     <div className="container mx-auto">
       <motion.h2
-        className="text-2xl sm:text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+        className="text-2xl sm:text-3xl font-bold mb-8 text-center text-gray-900"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -71,7 +71,7 @@ export default function ServicesSection() {
             key={service.title}
             variants={itemVariants}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="p-6 bg-blue-50 dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow"
+            className="p-6 bg-blue-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -80,10 +80,10 @@ export default function ServicesSection() {
               alt={service.alt}
               className="w-full h-32 object-cover rounded mb-4"
             />
-            <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">
+            <h3 className="font-semibold text-lg mb-2 text-gray-900">
               {service.title}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300">{service.description}</p>
+            <p className="text-gray-700">{service.description}</p>
           </motion.div>
         ))}
       </motion.div>

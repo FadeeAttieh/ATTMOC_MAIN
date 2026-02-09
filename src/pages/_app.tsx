@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
-import { ThemeProvider } from 'next-themes';
 import Loading from '../components/Loading';
 import Head from 'next/head';
 import { reportWebVitals as reportToAnalytics } from '../lib/analytics';
@@ -23,12 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Component {...pageProps} />
     </>
   );
 }
