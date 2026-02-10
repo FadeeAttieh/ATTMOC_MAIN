@@ -195,7 +195,7 @@ export default function Navbar() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] md:hidden"
           onClick={() => setMenuOpen(false)}
         />
       )}
@@ -205,7 +205,7 @@ export default function Navbar() {
         initial={{ x: "100%" }}
         animate={{ x: menuOpen ? 0 : "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-gradient-to-br from-black to-emerald-950 backdrop-blur-xl shadow-2xl z-50 md:hidden overflow-y-auto border-l border-emerald-800"
+        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-gradient-to-br from-black to-emerald-950 backdrop-blur-xl shadow-2xl z-[110] md:hidden overflow-y-auto border-l border-emerald-800"
         style={{
           borderLeft: "1px solid rgba(200,200,255,0.2)",
         }}
