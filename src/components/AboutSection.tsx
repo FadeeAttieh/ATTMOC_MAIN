@@ -37,7 +37,7 @@ export default function AboutSection() {
               className="text-center p-4 rounded-xl bg-emerald-900/30 border border-emerald-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-bold text-white">2020</div>
+              <div className="text-2xl font-bold text-white">2015</div>
               <div className="text-sm text-white">Founded</div>
             </motion.div>
             
@@ -45,7 +45,7 @@ export default function AboutSection() {
               className="text-center p-4 rounded-xl bg-emerald-900/30 border border-emerald-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-bold text-white">20+</div>
+              <div className="text-2xl font-bold text-white">12+</div>
               <div className="text-sm text-white">Team Members</div>
             </motion.div>
             

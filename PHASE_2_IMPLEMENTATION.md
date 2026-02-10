@@ -296,7 +296,7 @@ module.exports = withMDX(nextConfig);
 - 4 animated stat cards:
   - 🚀 150+ Projects Completed
   - 😊 120+ Happy Clients
-  - ⭐ 5+ Years Experience
+  - ⭐ 10+ Years Experience
   - 👥 12+ Team Members
 - Staggered entrance (0.1s delay between cards)
 - Scale animation from 0.5 to 1

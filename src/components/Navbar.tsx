@@ -92,7 +92,7 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="flex items-center justify-start pl-4 pr-6 py-3 gap-8">
+        <div className="flex items-center justify-between pl-4 pr-6 py-3">
           {/* Logo with tagline */}
           <Link 
             href="/" 
@@ -111,13 +111,13 @@ export default function Navbar() {
                 ATTMOC
               </span>
               <span className="text-[10px] text-white font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 1px 2px' }}>
-                Digital Excellence Since 2020
+                Digital Excellence Since 2015
               </span>
             </div>
           </Link>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex gap-2 items-center flex-1">
+        <div className="hidden md:flex gap-2 items-center">
           {sections.map((section) => (
             <motion.button
               key={section.id}

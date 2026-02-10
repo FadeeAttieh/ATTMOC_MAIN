@@ -25,7 +25,7 @@ const stats = [
   },
   { 
     label: "Years Experience", 
-    value: 15, 
+    value: 10, 
     suffix: "+", 
     icon: (
       <svg className="w-12 h-12 mx-auto text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

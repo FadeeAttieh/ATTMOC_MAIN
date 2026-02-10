@@ -110,7 +110,7 @@ export default function Loading() {
           ATTMOC
         </h2>
         <p className="text-sm text-emerald-300 font-medium tracking-wide drop-shadow">
-          Digital Excellence Since 2020
+          Digital Excellence Since 2015
         </p>
       </motion.div>
 

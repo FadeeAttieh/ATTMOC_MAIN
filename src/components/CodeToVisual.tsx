@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useTransform, MotionValue } from 'framer-motio
 
 const codeSteps = [
   {
-    code: '// Navbar Component\n<nav className="flex items-center\n  gap-6 px-4">\n  <a className="flex items-center gap-3">\n    <img src="/AttMOC_logo.png"\n      className="w-24 h-24 object-contain" />\n    <div className="flex flex-col">\n      <span className="font-bold text-xl\n        text-emerald-600">ATTMOC</span>\n      <span className="text-[10px]\n        text-gray-600 uppercase">\n        Digital Excellence Since 2020\n      </span>\n    </div>\n  </a>\n  <div className="flex gap-6">\n    <Link href="#hero">Home</Link>\n    <Link href="#services">Services</Link>\n    <Link href="#portfolio">Portfolio</Link>\n    <Link href="#about">About</Link>\n    <Link href="#contact">Contact</Link>\n    <Link href="#faq">FAQ</Link>\n  </div>\n</nav>',
+    code: '// Navbar Component\n<nav className="flex items-center\n  gap-6 px-4">\n  <a className="flex items-center gap-3">\n    <img src="/AttMOC_logo.png"\n      className="w-24 h-24 object-contain" />\n    <div className="flex flex-col">\n      <span className="font-bold text-xl\n        text-emerald-600">ATTMOC</span>\n      <span className="text-[10px]\n        text-gray-600 uppercase">\n        Digital Excellence Since 2015\n      </span>\n    </div>\n  </a>\n  <div className="flex gap-6">\n    <Link href="#hero">Home</Link>\n    <Link href="#services">Services</Link>\n    <Link href="#portfolio">Portfolio</Link>\n    <Link href="#about">About</Link>\n    <Link href="#contact">Contact</Link>\n    <Link href="#faq">FAQ</Link>\n  </div>\n</nav>',
     visual: 'nav-basic',
   },
   {
@@ -121,7 +121,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
                       <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
-                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
+                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2015</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
@@ -154,7 +154,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
                       <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
-                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
+                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2015</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
@@ -197,7 +197,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
                       <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
-                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
+                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2015</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
@@ -245,7 +245,7 @@ export default function CodeToVisual({ scrollYProgress }: CodeToVisualProps) {
                     <img alt="ATTMOC Logo" className="w-12 h-12 object-contain" src="/AttMOC_logo.png" />
                     <div className="flex flex-col">
                       <span className="font-bold text-sm text-emerald-600 leading-tight">ATTMOC</span>
-                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since 2020</span>
+                      <span className="text-[7px] text-gray-600 font-medium tracking-wider uppercase">Digital Excellence Since15</span>
                     </div>
                   </a>
                   <div className="hidden @lg:flex gap-3 text-xs">
