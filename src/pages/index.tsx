@@ -136,9 +136,9 @@ export default function Home() {
           ref={heroRef}
           className="min-h-screen w-full flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-950"
         >
-          {/* Animated Code-to-Visual - Slides down and vanishes */}
+          {/* Animated Code-to-Visual - Slides down and vanishes - Hidden on mobile for better readability */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center pt-28"
+            className="absolute inset-0 hidden md:flex items-center justify-center pt-28"
             style={{ 
               opacity: codeVisualOpacity,
             }}

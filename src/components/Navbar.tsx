@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { trackEvent } from "../lib/analytics";
@@ -66,6 +67,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle ESC key and body scroll lock
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleEscape);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [menuOpen]);
+
   const scrollToSection = (id: string) => {
     setMenuOpen(false);
     const el = document.getElementById(id);
@@ -79,12 +102,12 @@ export default function Navbar() {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 origin-left z-[70]"
         style={{ scaleX }}
       />
       
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-[60] transition-all duration-300 ${
           scrolled 
             ? "bg-gradient-to-r from-black/90 to-emerald-950/90 backdrop-blur-lg border-b border-emerald-800/50" 
             : "bg-gradient-to-r from-black/80 to-emerald-950/80 backdrop-blur-md"
@@ -189,29 +212,50 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu - Slide-in drawer */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] md:hidden"
-          onClick={() => setMenuOpen(false)}
-        />
-      )}
-      
-      <motion.div
-        id="mobile-menu"
-        initial={{ x: "100%" }}
-        animate={{ x: menuOpen ? 0 : "100%" }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-gradient-to-br from-black to-emerald-950 backdrop-blur-xl shadow-2xl z-[110] md:hidden overflow-y-auto border-l border-emerald-800"
-        style={{
-          borderLeft: "1px solid rgba(200,200,255,0.2)",
-        }}
-      >
+      {/* Mobile menu - Rendered via Portal to ensure it's always on top */}
+      {typeof window !== 'undefined' && createPortal(
+        <>
+          {/* Backdrop */}
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden"
+              style={{ zIndex: 9998 }}
+              onClick={() => setMenuOpen(false)}
+            />
+          )}
+          
+          {/* Drawer */}
+          <motion.div
+            id="mobile-menu"
+            initial={{ x: "100%" }}
+            animate={{ x: menuOpen ? 0 : "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset, velocity }) => {
+              // Close menu if swiped right more than 100px or high velocity
+              if (offset.x > 100 || velocity.x > 500) {
+                setMenuOpen(false);
+              }
+            }}
+            className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-gradient-to-br from-black to-emerald-950 backdrop-blur-xl shadow-2xl md:hidden overflow-y-auto border-l border-emerald-800"
+            style={{
+              borderLeft: "1px solid rgba(200,200,255,0.2)",
+              zIndex: 9999,
+              pointerEvents: menuOpen ? 'auto' : 'none',
+            }}
+          >
+        {/* Drag indicator - subtle visual cue for swipe gesture */}
+        <div className="flex justify-center pt-3 pb-1">
+          <div className="w-12 h-1 bg-emerald-600 rounded-full opacity-50"></div>
+        </div>
+
         {/* Close button */}
-        <div className="flex justify-end p-4">
+        <div className="flex justify-end p-4 pt-2">
           <motion.button
             className="p-2 rounded-lg bg-emerald-800/50 text-white border border-emerald-700"
             onClick={() => setMenuOpen(false)}
@@ -241,21 +285,21 @@ export default function Navbar() {
         </div>
 
         {/* Menu items */}
-        <div className="px-8 space-y-2">
+        <div className="px-6 space-y-3">
           {sections.map((section, index) => (
             <motion.button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+              className={`w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg transition-all duration-200 ${
                 active === section.id
-                  ? "bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-lg shadow-emerald-900/50"
-                  : "text-white hover:bg-emerald-900/50 border border-emerald-800"
+                  ? "bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-xl shadow-emerald-900/60"
+                  : "text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20"
               }`}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.02, x: 5 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               {section.label}
             </motion.button>
@@ -269,7 +313,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/careers" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-white hover:bg-emerald-900/50 transition-all duration-200 border border-emerald-800"
+                className="block w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
                 onClick={() => setMenuOpen(false)}
               >
                 Careers
@@ -285,7 +329,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/quote" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-white hover:bg-emerald-900/50 transition-all duration-200 border border-emerald-800"
+                className="block w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
                 onClick={() => setMenuOpen(false)}
               >
                 Quote
@@ -301,7 +345,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/blog" 
-                className="block w-full text-left px-4 py-3 rounded-lg font-semibold text-white hover:bg-emerald-900/50 transition-all duration-200 border border-emerald-800"
+                className="block w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
                 onClick={() => setMenuOpen(false)}
               >
                 Blog
@@ -310,6 +354,9 @@ export default function Navbar() {
           )}
         </div>
       </motion.div>
+        </>,
+        document.body
+      )}
     </nav>
     </>
   );
