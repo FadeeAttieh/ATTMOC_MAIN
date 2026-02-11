@@ -11,6 +11,7 @@ import RevealOnScroll from "../components/RevealOnScroll";
 import FloatingShapes from "../components/FloatingShapes";
 import Showcase3D from "../components/Showcase3D";
 import CodeToVisual from "../components/CodeToVisual";
+import Footer from "../components/Footer";
 import { trackEvent } from "../lib/analytics";
 
 // Dynamic imports for code splitting - components below the fold
@@ -248,6 +249,8 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }
