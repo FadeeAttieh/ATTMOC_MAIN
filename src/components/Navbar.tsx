@@ -116,31 +116,32 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <div className="flex items-center justify-between pl-4 pr-6 py-3">
-          {/* Logo with tagline */}
-          <Link 
-            href="/" 
-            className="group flex items-center gap-3 hover:opacity-90 transition-all duration-300"
-            aria-label="ATTMOC Home"
-          >
-            <motion.img 
-              src="/AttMOC_logo.png" 
-              alt="ATTMOC Logo" 
-              className="w-24 h-24 object-contain"
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-            />
-            <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-xl text-white leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px' }}>
-                ATTMOC
-              </span>
-              <span className="text-[10px] text-white font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 1px 2px' }}>
-                Digital Excellence Since 2015
-              </span>
-            </div>
-          </Link>
+          <div className="flex items-center gap-8">
+            {/* Logo with tagline */}
+            <Link 
+              href="/" 
+              className="group flex items-center gap-3 hover:opacity-90 transition-all duration-300"
+              aria-label="ATTMOC Home"
+            >
+              <motion.img 
+                src="/AttMOC_logo.png" 
+                alt="ATTMOC Logo" 
+                className="w-24 h-24 object-contain"
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+              />
+              <div className="hidden sm:flex flex-col">
+                <span className="font-bold text-xl text-white leading-tight" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 2px 4px' }}>
+                  ATTMOC
+                </span>
+                <span className="text-[10px] text-white font-medium tracking-wider uppercase" style={{ textShadow: 'rgba(0, 0, 0, 0.5) 0px 1px 2px' }}>
+                  Digital Excellence Since 2015
+                </span>
+              </div>
+            </Link>
 
-        {/* Desktop menu */}
-        <div className="hidden md:flex gap-2 items-center">
+            {/* Desktop menu - next to logo */}
+            <div className="hidden md:flex gap-2 items-center">
           {sections.map((section) => (
             <motion.button
               key={section.id}
@@ -191,7 +192,8 @@ export default function Navbar() {
               </Link>
             </motion.div>
           )}
-        </div>
+            </div>
+          </div>
 
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center gap-2">
@@ -290,7 +292,7 @@ export default function Navbar() {
             <motion.button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg transition-all duration-200 ${
+              className={`w-full text-left px-6 py-4 rounded-2xl font-semibold text-lg transition-all duration-200 ${
                 active === section.id
                   ? "bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-xl shadow-emerald-900/60"
                   : "text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20"
@@ -313,7 +315,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/careers" 
-                className="block w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
+                className="block w-full text-left px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
                 onClick={() => setMenuOpen(false)}
               >
                 Careers
@@ -329,7 +331,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/quote" 
-                className="block w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
+                className="block w-full text-left px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
                 onClick={() => setMenuOpen(false)}
               >
                 Quote
@@ -345,7 +347,7 @@ export default function Navbar() {
             >
               <Link 
                 href="/blog" 
-                className="block w-full text-center px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
+                className="block w-full text-left px-6 py-4 rounded-2xl font-semibold text-lg text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
                 onClick={() => setMenuOpen(false)}
               >
                 Blog
